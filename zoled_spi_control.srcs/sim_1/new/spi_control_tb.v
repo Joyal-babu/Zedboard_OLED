@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer:JOYAL 
 // 
 // Create Date: 25.05.2022 10:13:28
 // Design Name: 
@@ -32,20 +32,20 @@ module spi_control_tb;
     
     spi_control tb1 (.clock(clock), .reset(reset), .data_in(data_in), .data_vld(data_vld), .o_sclock(o_sclock), .o_sdata(o_sdata), .o_sdone(o_sdone));     
 
-    always #5 clock = ~clock;
+    always #5 clock <= ~clock;
     
     initial
     begin 
-              clock      = 1'b0;
-              reset      = 1'b1;
-              data_in    = 8'h65;
-              data_vld   = 1'b0;
-        #500  reset      = 1'b0;
-        #480  data_vld   = 1'b1;
-        #300  data_vld   = 1'b0;
-        #1000 data_in    = 8'hD2;
-              data_vld   = 1'b1;
-        #300  data_vld   = 1'b0;        
+              clock      <= 1'b0;
+              reset      <= 1'b1;
+              data_in    <= 8'h65;
+              data_vld   <= 1'b0;
+        #500  reset      <= 1'b0;
+        #480  data_vld   <= 1'b1;
+        #300  data_vld   <= 1'b0;
+        #1000 data_in    <= 8'hD2;
+              data_vld   <= 1'b1;
+        #300  data_vld   <= 1'b0;        
     end
 
 endmodule
